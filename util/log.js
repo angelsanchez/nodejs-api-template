@@ -8,7 +8,7 @@ var logStreams = [
 ];
 
 var logger = bunyan.createLogger({
-	name: 'library',
+	name: 'library-example',
 	streams : logStreams
 });
 
