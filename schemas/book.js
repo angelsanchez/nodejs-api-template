@@ -1,11 +1,12 @@
+
 var restful = require('node-restful'),
 	mongoose = restful.mongoose;
 
 var BookSchema = mongoose.Schema({
-	title: { type: String, required: true, trim: true },
-	price: { type: Number, required: true },
 	created: { type: Date, default: Date.now },
-	updated: { type: Date, default: Date.now, index: true }
+	title: { type: String, required: true, trim: true, unique : true, index : true },
+	price: { type: Number, required: true },
+	author: { type : mongoose.Schema.Types.ObjectId, ref : 'Author', required: true }
 });
 
 module.exports = BookSchema;
