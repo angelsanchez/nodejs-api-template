@@ -5,12 +5,17 @@ var log = require('../util/log').logger,
 	BookSchema = require("../schemas/book"),
 	BookModel = mongoose.model('Book', BookSchema);
 
+function findBooks (criteria, callback) {
+	log.info('Searching books...');
+	BookModel.find(criteria).populate('author').exec(callback);
+}
+
 function getBookWithAuthor (bookId, callback) {
-	log.info('Searching the book [' + req.param('id') + ']...');
+	log.info('Searching the book[' + bookId + ']...');
 	BookModel.findById(bookId).populate('author').exec(callback);
 }
 
 module.exports = {
-	model : BookModel,
+	findBooks : findBooks,
 	getBookWithAuthor : getBookWithAuthor
 };

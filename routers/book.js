@@ -10,7 +10,7 @@ function validateBook (req, res, next) {
 	if ( req.body.author ) {
 		log.info('Searching the author [' + req.body.author + ']...');
 
-		authors.model.findById(req.body.author, function (err, author) {
+		authors.getAuthor(req.body.author, function (err, author) {
 			if (err) return next(err);
 			if (!author) {
 				var authorErr = new Error('Author not found');
@@ -26,8 +26,14 @@ function validateBook (req, res, next) {
 	}
 }
 
-function getBookWithAuthor (req, res, next) {
+function getAllBooks (req, res, next) {
+	books.findBooks({}, function (err, books) {
+		if (err) return next(err);
+		res.json(books);
+	});
+}
 
+function getBookWithAuthor (req, res, next) {
 	books.getBookWithAuthor(req.param('id'), function (err, book) {
 		if (err) return next(err);
 		if (!book) {
@@ -47,6 +53,7 @@ module.exports = function (app) {
 
 	Books.before('post', validateBook);
 
+	Books.route('get', getAllBooks); // GET /api/book
 	Books.route(':id.get', getBookWithAuthor); // GET /api/book/:id
 
 	Books.register(app, '/api/book');
