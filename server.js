@@ -6,22 +6,37 @@ var express = require('express'),
 	path = require('path'),
 	fs = require('fs'),
 	mongoose = restful.mongoose,
-	logger = require('morgan');
+	expressLogger = require('./util/log').expressLogger,
+	log = require('./util/log').logger;
 
-
+//
+// App
+//
 var app = express();
-app.use(logger('dev'));
+app.use( expressLogger );
 app.use( bodyParser.json() );
 app.use( express.static(path.join(__dirname, 'public')) );
 
+//
+// MongoDB
+//
 mongoose.connect( config.get('db.conn') );
 mongoose.connection.on('error', console.log);
 
+//
+// Routers
+//
 var routersPath = path.join(__dirname, '/routers');
 fs.readdirSync(routersPath).forEach(function (file) {
-	if (~file.indexOf('.js')) require(path.join(routersPath, file))(app);
+	if ( ~file.indexOf('.js') ) {
+		require(path.join(routersPath, file))(app);
+		log.info('Router ' + file + ' loaded');
+	}
 });
 
+//
+// Init
+//
 var port = process.env.PORT || 3000;
 app.listen( port );
-console.log('Server running at port ' + port);
+log.info('Server running at port ' + port);

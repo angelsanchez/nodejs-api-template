@@ -1,5 +1,8 @@
 {
   "db" : {
     "conn" : "mongodb://localhost/example"
+  },
+  "log" : {
+    "path" : "/tmp/node-library-logs.log"
   }
 }
