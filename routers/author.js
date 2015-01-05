@@ -12,6 +12,16 @@ function createAuthor(req, res, next) {
 	});
 }
 
+function updateAuthor(req, res, next) {
+	authors.updateAuthor(req.param('id'), req.body, function (err, author) {
+		if (err) {
+			next(err);
+		} else {
+			res.status(200).json(author);
+		}
+	});
+}
+
 function getAuthor(req, res, next) {
 	authors.getAuthor(req.param('id'), function (err, author) {
 		if (err) {
@@ -43,6 +53,7 @@ module.exports = function (app) {
 
 	app.route('/api/author/:id').
 		get(getAuthor).
-		delete(deleteAuthor);
+		delete(deleteAuthor).
+		put(updateAuthor);
 
 };

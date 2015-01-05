@@ -19,6 +19,18 @@ function createBook(bookInput, callback) {
 	book.save(callback);
 }
 
+function updateBook(id, bookInput, callback) {
+	log.info('Updating book...');
+	var book = new Book(bookInput);
+	var upd = {
+		$set : {
+			title : book.title,
+			price : book.price
+		}
+	};
+	Book.findByIdAndUpdate(id, upd, callback);
+}
+
 function deleteBook(id, callback) {
 	log.info('Removing book[' + id + ']...');
 	Book.findById(id, {_id: 1, author: 1}, function (err, book) {
@@ -39,5 +51,6 @@ module.exports = {
 	createBook: createBook,
 	findBooks: findBooks,
 	getBookWithAuthor: getBookWithAuthor,
-	deleteBook: deleteBook
+	deleteBook: deleteBook,
+	updateBook: updateBook
 };

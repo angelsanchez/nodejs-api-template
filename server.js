@@ -46,7 +46,7 @@ mongoose.connect(config.get('db.conn'), function (err) {
 	//
 	// Init
 	//
-	var port = process.env.PORT || 3000;
+	var port = process.env.PORT || config.get('port');
 	app.listen(port);
 	log.info('Server running at port ' + port);
 });

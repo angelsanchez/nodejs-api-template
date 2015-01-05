@@ -9,9 +9,21 @@ function getAuthor(id, callback) {
 }
 
 function createAuthor(authorInput, callback) {
-	log.info('Creating  author...');
+	log.info('Creating author...');
 	var author = new Author(authorInput);
 	author.save(callback);
+}
+
+function updateAuthor(id, authorInput, callback) {
+	log.info('Updating author...');
+	var author = new Author(authorInput);
+	var upd = {
+		$set : {
+			name : author.name,
+			birthday : author.birthday
+		}
+	};
+	Author.findByIdAndUpdate(id, upd, callback);
 }
 
 function addBookToAuthor(authorId, bookId, callback) {
@@ -48,6 +60,7 @@ function deleteAuthor(id, callback) {
 module.exports = {
 	getAuthor: getAuthor,
 	createAuthor: createAuthor,
+	updateAuthor: updateAuthor,
 	addBookToAuthor: addBookToAuthor,
 	removeBookFromAuthor: removeBookFromAuthor,
 	deleteAuthor: deleteAuthor
