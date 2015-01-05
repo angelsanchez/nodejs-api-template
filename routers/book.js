@@ -1,60 +1,55 @@
 
 var log = require('../util/log').logger,
-	restful = require('node-restful'),
-	BookSchema = require('../schemas/book'),
-	authors = require('../controllers/author'),
 	books = require('../controllers/book');
 
 
-function validateBook (req, res, next) {
-	if ( req.body.author ) {
-		log.info('Searching the author [' + req.body.author + ']...');
-
-		authors.getAuthor(req.body.author, function (err, author) {
-			if (err) return next(err);
-			if (!author) {
-				var authorErr = new Error('Author not found');
-				authorErr.status = 400;
-				return next(authorErr);
-			}
-
-			log.info('Valid author');
-			next();
-		});
-	} else {
-		next();
-	}
-}
-
-function getAllBooks (req, res, next) {
+function getAllBooks(req, res, next) {
 	books.findBooks({}, function (err, books) {
 		if (err) return next(err);
 		res.json(books);
 	});
 }
 
-function getBookWithAuthor (req, res, next) {
+function getBookWithAuthor(req, res, next) {
 	books.getBookWithAuthor(req.param('id'), function (err, book) {
-		if (err) return next(err);
-		if (!book) {
-			var bookNotFoundErr = new Error('Book not found');
-			bookNotFoundErr.status = 404;
-			return next(bookNotFoundErr);
+		if (err) {
+			next(err);
+		} else if (!book) {
+			res.sendStatus(404);
+		} else {
+			res.json(book);
 		}
+	});
+}
 
-		res.json(book);
+function createBook(req, res, next) {
+	books.createBook(req.body, function (err, book) {
+		if (err) {
+			next(err);
+		} else {
+			res.status(201).json(book);
+		}
+	});
+}
+
+function deleteBook(req, res, next) {
+	books.deleteBook(req.param('id'), function (err, book) {
+		if (err) {
+			next(err);
+		} else if (!book) {
+			res.sendStatus(404);
+		} else {
+			res.sendStatus(204);
+		}
 	});
 }
 
 module.exports = function (app) {
-	var Books = restful.model('books', BookSchema);
+	app.route('/api/book').
+		get(getAllBooks).
+		post(createBook);
 
-	Books.methods(['post', 'put', 'delete']);
-
-	Books.before('post', validateBook);
-
-	Books.route('get', getAllBooks); // GET /api/book
-	Books.route(':id.get', getBookWithAuthor); // GET /api/book/:id
-
-	Books.register(app, '/api/book');
+	app.route('/api/book/:id').
+		get(getBookWithAuthor).
+		delete(deleteBook);
 };

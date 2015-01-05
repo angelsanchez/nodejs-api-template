@@ -3,8 +3,12 @@ var config = require('config'),
 	expressBunyan = require('express-bunyan-logger');
 
 var logStreams = [
-	{ stream: process.stdout },
-	{ path: config.get('log.path') }
+	{
+		stream: process.stdout
+	},
+	{
+		path: config.get('log.path')
+	}
 ];
 
 var logger = bunyan.createLogger({
