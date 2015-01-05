@@ -1,29 +1,8 @@
-var log = require('./util/log').logger,
+var log = require('../util/log').logger,
 	config = require('config'),
-	express = require('express'),
-	expressLogger = require('./util/log').expressLogger,
-	bodyParser = require('body-parser'),
 	mongoose = require('mongoose'),
-	path = require('path'),
-	fs = require('fs');
+	app = require('../app');
 
-//
-// App
-//
-var app = express();
-app.use(expressLogger);
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
-
-//
-// Routers
-//
-fs.readdirSync('./routers').forEach(function (file) {
-	if (~file.indexOf('.js')) {
-		require('./routers/' + file)(app);
-		log.info('Router ' + file + ' loaded');
-	}
-});
 
 //
 // MongoDB
