@@ -1,6 +1,5 @@
 var config = require('config'),
-	bunyan = require('bunyan'),
-	expressBunyan = require('express-bunyan-logger');
+	bunyan = require('bunyan');
 
 var logStreams = [
 	{
@@ -13,15 +12,12 @@ var logStreams = [
 
 var logger = bunyan.createLogger({
 	name: 'library-example',
-	streams : logStreams
-});
-
-var expressLogger = expressBunyan({
-	name: 'http-request',
-	streams: logStreams
+	streams : logStreams,
+	serializers: {
+		req: bunyan.stdSerializers.req
+	}
 });
 
 module.exports = {
-	logger : logger,
-	expressLogger : expressLogger
+	logger : logger
 };

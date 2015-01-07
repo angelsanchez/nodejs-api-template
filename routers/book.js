@@ -6,61 +6,60 @@ var log = require('../util/log').logger,
 function getAllBooks(req, res, next) {
 	books.findBooks({}, function (err, books) {
 		if (err) return next(err);
-		res.json(books);
+		res.send(books);
+		return next();
 	});
 }
 
 function getBookWithAuthor(req, res, next) {
-	books.getBookWithAuthor(req.param('id'), function (err, book) {
-		if (err) {
-			next(err);
-		} else if (!book) {
-			res.sendStatus(404);
+	books.getBookWithAuthor(req.params.id, function (err, book) {
+		if (err) return next(err);
+
+		if (!book) {
+			res.send(404);
 		} else {
-			res.json(book);
+			res.send(book);
 		}
+
+		return next();
 	});
 }
 
 function createBook(req, res, next) {
 	books.createBook(req.body, function (err, book) {
-		if (err) {
-			next(err);
-		} else {
-			res.status(201).json(book);
-		}
+		if (err) return next(err);
+		res.send(201, book);
+		return next();
 	});
 }
 
 function updateBook(req, res, next) {
-	books.updateBook(req.param('id'), req.body, function (err, book) {
-		if (err) {
-			next(err);
-		} else {
-			res.status(200).json(book);
-		}
+	books.updateBook(req.params.id, req.body, function (err, book) {
+		if (err) return next(err);
+		res.send(200, book);
+		return next();
 	});
 }
 
 function deleteBook(req, res, next) {
-	books.deleteBook(req.param('id'), function (err, book) {
-		if (err) {
-			next(err);
-		} else if (!book) {
-			res.sendStatus(404);
+	books.deleteBook(req.params.id, function (err, book) {
+		if (err) return next(err);
+
+		if (book) {
+			res.send(204);
 		} else {
-			res.sendStatus(204);
+			res.send(404);
 		}
+
+		return next();
 	});
 }
 
 module.exports = function (app) {
-	app.route('/api/book').
-		get(getAllBooks).
-		post(createBook);
+	app.get('/api/book', getAllBooks);
+	app.post('/api/book', createBook);
 
-	app.route('/api/book/:id').
-		get(getBookWithAuthor).
-		delete(deleteBook).
-		put(updateBook);
+	app.get('/api/book/:id', getBookWithAuthor);
+	app.del('/api/book/:id', deleteBook);
+	app.put('/api/book/:id', updateBook);
 };

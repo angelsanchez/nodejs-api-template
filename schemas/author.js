@@ -1,6 +1,5 @@
 
-var restful = require('node-restful'),
-	mongoose = restful.mongoose;
+var mongoose = require('mongoose');;
 
 var AuthorSchema = mongoose.Schema({
 	created: { type: Date, default: Date.now },

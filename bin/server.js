@@ -3,13 +3,11 @@ var log = require('../util/log').logger,
 	mongoose = require('mongoose'),
 	app = require('../app');
 
-
 //
 // MongoDB
 //
-var env = process.env.NODE_ENV || 'dev';
-if (env === 'dev') {
-	log.info('[dev] Setting MongoDB in debug mode');
+var NODE_ENV = process.env.NODE_ENV || 'development';
+if (NODE_ENV === 'development') {
 	mongoose.set('debug', true);
 }
 
@@ -26,6 +24,7 @@ mongoose.connect(config.get('db.conn'), function (err) {
 	// Init
 	//
 	var port = process.env.PORT || config.get('port');
-	app.listen(port);
-	log.info('Server running at port ' + port);
+	app.listen(port, function () {
+		log.info('Server running at port ' + port);
+	});
 });

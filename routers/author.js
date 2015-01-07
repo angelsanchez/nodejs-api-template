@@ -4,56 +4,51 @@ var log = require('../util/log').logger,
 
 function createAuthor(req, res, next) {
 	authors.createAuthor(req.body, function (err, author) {
-		if (err) {
-			next(err);
-		} else {
-			res.status(201).json(author);
-		}
+		if (err) return next(err);
+		res.send(201, author);
+		return next();
 	});
 }
 
 function updateAuthor(req, res, next) {
-	authors.updateAuthor(req.param('id'), req.body, function (err, author) {
-		if (err) {
-			next(err);
-		} else {
-			res.status(200).json(author);
-		}
+	authors.updateAuthor(req.params.id, req.body, function (err, author) {
+		if (err) return next(err);
+		res.send(200, author);
+		return next();
 	});
 }
 
 function getAuthor(req, res, next) {
-	authors.getAuthor(req.param('id'), function (err, author) {
-		if (err) {
-			next(err);
-		} else if (!author) {
-			res.sendStatus(404);
+	authors.getAuthor(req.params.id, function (err, author) {
+		if (err) return next(err);
+
+		if (!author) {
+			res.send(404);
 		} else {
-			res.json(author);
+			res.send(author);
 		}
+
+		return next();
 	});
 }
 
 function deleteAuthor(req, res, next) {
-	authors.deleteAuthor(req.param('id'), function (err, author) {
-		if (err) {
-			next(err);
-		} else if (!author) {
-			res.sendStatus(404);
+	authors.deleteAuthor(req.params.id, function (err, author) {
+		if (err) return next(err);
+
+		if (author) {
+			res.send(204);
 		} else {
-			res.sendStatus(204);
+			res.send(404);
 		}
+
+		return next();
 	});
 }
 
-module.exports = function (app) {
-
-	app.route('/api/author').
-		post(createAuthor);
-
-	app.route('/api/author/:id').
-		get(getAuthor).
-		delete(deleteAuthor).
-		put(updateAuthor);
-
+module.exports = function (server) {
+	server.post('/api/author', createAuthor);
+	server.get('/api/author/:id', getAuthor);
+	server.del('/api/author/:id', deleteAuthor);
+	server.put('/api/author/:id', updateAuthor);
 };
