@@ -4,7 +4,7 @@
   "description": "A boilerplate for building a NodeJS API server. Use it as a template project when you want to start a new project.",
   "main": "bin/server.js",
   "scripts": {
-    "start": "./node_modules/.bin/forever start --append -o ./forever.log -e ./forever_err.log ./bin/server.js",
+    "start": "./node_modules/.bin/forever start ./bin/server.js",
     "stop": "./node_modules/.bin/forever stop ./bin/server.js",
     "status": "./node_modules/.bin/forever list",
     "test": "cucumber-js features/"
