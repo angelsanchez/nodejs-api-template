@@ -1,9 +1,12 @@
 {
   "name": "nodejs-api-template",
   "version": "0.0.1",
-  "description": "An archetype of a Node JS API server. Use it as a template project when you want to start a new project.",
-  "main": "server.js",
+  "description": "A boilerplate for building a NodeJS API server. Use it as a template project when you want to start a new project.",
+  "main": "bin/server.js",
   "scripts": {
+    "start": "./node_modules/.bin/forever start --append -o ./forever.log -e ./forever_err.log ./bin/server.js",
+    "stop": "./node_modules/.bin/forever stop ./bin/server.js",
+    "status": "./node_modules/.bin/forever list",
     "test": "cucumber-js features/"
   },
   "repository": {
@@ -26,12 +29,9 @@
     "mongoose": "^3.8.21",
     "config": "^1.9.0",
     "bunyan": "^1.2.3",
-    "lodash": "^2.4.1",
-    "async": "^0.9.0"
+    "forever": "^0.13.0"
   },
   "devDependencies": {
-    "nock": "^0.52.4",
-    "cucumber": "^0.4.7",
-    "supertest": "^0.15.0"
+    "cucumber": "^0.4.7"
   }
 }
