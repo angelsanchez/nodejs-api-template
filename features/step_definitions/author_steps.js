@@ -8,20 +8,16 @@ var myStepDefinitionsWrapper = function () {
 
 	var userInput, response;
 
-	this.When(/^The API consumer sends a (.*) to (.*)$/, function (method, path, callback) {
-		if (method === 'POST') {
-			request(app)
-				.post(path)
-				.send(userInput)
-				.expect('Content-Type', /json/)
-				.end(function(err, res){
-					if (err) return callback(err);
-					response = res;
-					callback();
-				});
-		} else {
-			throw 'mehod[' + method + '] not yet implemented';
-		}
+	this.When(/^The API consumer sends a POST to \/api\/author with the author data$/, function (callback) {
+		request(app)
+			.post('/api/author')
+			.send(userInput)
+			.expect('Content-Type', /json/)
+			.end(function(err, res){
+				if (err) return callback(err);
+				response = res;
+				callback();
+			});
 	});
 
 	this.Then(/^The response should have the (\d+) status code$/, function (statusCode, callback) {
@@ -51,5 +47,6 @@ var myStepDefinitionsWrapper = function () {
 		};
 		callback();
 	});
+
 };
 module.exports = myStepDefinitionsWrapper;

@@ -1,4 +1,8 @@
 {
+  "app" : {
+    "name" : "library-example",
+    "version" : "0.0.1"
+  },
   "port" : 3000,
   "db" : {
     "conn" : "mongodb://localhost/library-example"

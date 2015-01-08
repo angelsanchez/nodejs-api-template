@@ -2,6 +2,8 @@
 var mongoose = require('mongoose'),
 	config = require('config');
 
+mongoose.set('debug', true);
+
 var dbHooks = function () {
 
 	this.Before(function(callback) {

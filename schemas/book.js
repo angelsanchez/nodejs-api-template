@@ -1,5 +1,6 @@
 
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+	authors = require('../manager/author');
 
 var BookSchema = mongoose.Schema({
 	created: { type: Date, default: Date.now },
@@ -11,7 +12,7 @@ var BookSchema = mongoose.Schema({
 
 BookSchema.pre('save', function (next) {
 	if (this.author) {
-		require('../controllers/author').getAuthor(this.author, function (err, author) {
+		authors.getAuthor(this.author, function (err, author) {
 			if (err) {
 				next(err);
 			} else if (!author) {
@@ -27,7 +28,7 @@ BookSchema.pre('save', function (next) {
 });
 
 BookSchema.post('save', function (book) {
-	require('../controllers/author').addBookToAuthor(book.author, book._id);
+	authors.addBookToAuthor(book.author, book._id);
 });
 
 module.exports = BookSchema;

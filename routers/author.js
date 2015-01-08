@@ -1,10 +1,18 @@
 var log = require('../util/log').logger,
-	authors = require('../controllers/author');
+	restify = require('restify'),
+	authors = require('../manager/author');
 
 
 function createAuthor(req, res, next) {
 	authors.createAuthor(req.body, function (err, author) {
-		if (err) return next(err);
+		if ( err ) {
+			if (err.name === 'ValidationError' || err.name === 'CastError') {
+				return next(new restify.InvalidContentError({ body : err }));
+			} else {
+				return next(err);
+			}
+		}
+
 		res.send(201, author);
 		return next();
 	});

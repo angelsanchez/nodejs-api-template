@@ -1,20 +1,21 @@
 var log = require('./util/log').logger,
 	restify = require('restify'),
 	path = require('path'),
+	config = require('config'),
 	fs = require('fs');
 
 //
 // App
 //
 var server = restify.createServer({
-	name : 'library-example',
-	version : '0.0.1',
+	name : config.get('app.name'),
+	version : config.get('app.version'),
 	log: log
 });
 
 server.use(restify.requestLogger());
 server.on('after', function (request, response, route, error) {
-	request.log.info({ req: request }, 'REQUEST');
+	request.log.info({ req: request, res: response, error: error }, 'Request');
 });
 
 server.use(restify.queryParser());

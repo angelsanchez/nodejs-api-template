@@ -14,7 +14,8 @@ var logger = bunyan.createLogger({
 	name: 'library-example',
 	streams : logStreams,
 	serializers: {
-		req: bunyan.stdSerializers.req
+		req: bunyan.stdSerializers.req,
+		res: bunyan.stdSerializers.res
 	}
 });
 

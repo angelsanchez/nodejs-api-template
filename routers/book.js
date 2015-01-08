@@ -1,6 +1,6 @@
 
 var log = require('../util/log').logger,
-	books = require('../controllers/book');
+	books = require('../manager/book');
 
 
 function getAllBooks(req, res, next) {
