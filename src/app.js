@@ -4,39 +4,39 @@ var log = require('./util/log'),
   config = require('config'),
   fs = require('fs'),
   ROUTES_FOLDER = './routes/',
-  server;
+  app;
 
 //
 // App
 //
-server = restify.createServer({
+app = restify.createServer({
   name: config.get('app.name'),
   version: config.get('app.version'),
   log: log
 });
 
-server.use(restify.requestLogger());
-server.on('after', function(request, response, route, error) {
+app.use(restify.requestLogger());
+app.on('after', function(request, response, route, error) {
   request.log.info({req: request, res: response, error: error}, 'Request');
 });
 
-server.use(restify.queryParser());
-server.use(restify.bodyParser());
-server.use(restify.fullResponse()); // Sets up all of the default headers
+app.use(restify.queryParser());
+app.use(restify.bodyParser());
+app.use(restify.fullResponse()); // Sets up all of the default headers
 
 //
 // Routers
 //
 fs.readdirSync(path.join(__dirname, ROUTES_FOLDER)).forEach(function loadRoutes(file) {
   if (~file.indexOf('.js')) {
-    require(ROUTES_FOLDER + file)(server);
+    require(ROUTES_FOLDER + file)(app);
     log.info('Router ' + file + ' loaded');
   }
 });
 
-server.use(restify.serveStatic({
+app.use(restify.serveStatic({
   directory: path.join(__dirname, 'public'),
   default: 'index.html'
 }));
 
-module.exports = server;
+module.exports = app;

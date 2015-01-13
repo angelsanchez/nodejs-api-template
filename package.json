@@ -9,7 +9,7 @@
     "status": "./node_modules/.bin/forever list",
     "test": "node_modules/cucumber/bin/cucumber.js features/",
     "lint": "node_modules/jshint/bin/jshint ./bin ./src",
-    "code-style": "node_modules/jscs/bin/jscs ./bin ./src --config="
+    "code-style": "node_modules/jscs/bin/jscs ./bin ./src"
   },
   "repository": {
     "type": "git",
