@@ -1,7 +1,7 @@
-var log = require('../util/log').logger,
+var log = require('../src/util/log'),
 	config = require('config'),
 	mongoose = require('mongoose'),
-	app = require('../app');
+	app = require('../src/app');
 
 //
 // MongoDB

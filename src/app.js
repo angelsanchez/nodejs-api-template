@@ -1,8 +1,9 @@
-var log = require('./util/log').logger,
+var log = require('./util/log'),
 	restify = require('restify'),
 	path = require('path'),
 	config = require('config'),
-	fs = require('fs');
+	fs = require('fs'),
+	routers_path = path.resolve(process.cwd(), 'src/routers');
 
 //
 // App
@@ -25,9 +26,9 @@ server.use(restify.fullResponse()); // Sets up all of the default headers
 //
 // Routers
 //
-fs.readdirSync('./routers').forEach(function (file) {
+fs.readdirSync(routers_path).forEach(function (file) {
 	if (~file.indexOf('.js')) {
-		require('./routers/' + file)(server);
+		require(path.resolve(routers_path, file))(server);
 		log.info('Router ' + file + ' loaded');
 	}
 });

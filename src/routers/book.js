@@ -1,6 +1,15 @@
 
-var log = require('../util/log').logger,
+var log = require('../util/log'),
 	books = require('../manager/book');
+
+module.exports = function (app) {
+	app.get('/api/book', getAllBooks);
+	app.post('/api/book', createBook);
+
+	app.get('/api/book/:id', getBookWithAuthor);
+	app.del('/api/book/:id', deleteBook);
+	app.put('/api/book/:id', updateBook);
+};
 
 
 function getAllBooks(req, res, next) {
@@ -54,12 +63,3 @@ function deleteBook(req, res, next) {
 		return next();
 	});
 }
-
-module.exports = function (app) {
-	app.get('/api/book', getAllBooks);
-	app.post('/api/book', createBook);
-
-	app.get('/api/book/:id', getBookWithAuthor);
-	app.del('/api/book/:id', deleteBook);
-	app.put('/api/book/:id', updateBook);
-};

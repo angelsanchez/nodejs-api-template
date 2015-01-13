@@ -2,17 +2,35 @@
 	"id": "57986ec4-6cb0-1d92-d0a0-74de14490f3f",
 	"name": "library-example",
 	"description": "",
-	"order": [
-		"b21b16f4-901d-ac63-eeb1-b8212e0e88a5",
-		"e928a205-07e7-3cb4-ee68-3e542c4d358e",
-		"a5554795-a08e-4bc3-f6a7-db66b06bc2b7",
-		"0c85ac8e-c74b-8087-5bb8-ec8e1d600355",
-		"ce4f2e0e-8ed4-f72b-bc1d-96e772fa10cd",
-		"6c374fe6-2e52-6159-9ea3-6be71fc2f498",
-		"85845d03-385d-402c-9463-c067a166a74b",
-		"457798ed-c02b-e7ee-18c2-702d02f4e9bb"
+	"order": [],
+	"folders": [
+		{
+			"id": "9fde4f0e-02e1-944c-4599-f752877928ce",
+			"name": "Authors",
+			"description": "",
+			"order": [
+				"e928a205-07e7-3cb4-ee68-3e542c4d358e",
+				"b21b16f4-901d-ac63-eeb1-b8212e0e88a5",
+				"a5554795-a08e-4bc3-f6a7-db66b06bc2b7",
+				"0c85ac8e-c74b-8087-5bb8-ec8e1d600355"
+			],
+			"collection_name": "library-example",
+			"collection_id": "57986ec4-6cb0-1d92-d0a0-74de14490f3f"
+		},
+		{
+			"id": "bdd4c4b4-a921-7359-92e1-2e6a251e6f4f",
+			"name": "Books",
+			"description": "",
+			"order": [
+				"6c374fe6-2e52-6159-9ea3-6be71fc2f498",
+				"ce4f2e0e-8ed4-f72b-bc1d-96e772fa10cd",
+				"85845d03-385d-402c-9463-c067a166a74b",
+				"457798ed-c02b-e7ee-18c2-702d02f4e9bb"
+			],
+			"collection_name": "library-example",
+			"collection_id": "57986ec4-6cb0-1d92-d0a0-74de14490f3f"
+		}
 	],
-	"folders": [],
 	"timestamp": 1420625775107,
 	"synced": false,
 	"remoteLink": "",
@@ -21,46 +39,44 @@
 			"id": "0c85ac8e-c74b-8087-5bb8-ec8e1d600355",
 			"headers": "Content-Type: application/json\n",
 			"url": "http://localhost:3000/api/author/:id",
-			"pathVariables": {
-				"id": "54ad1f441776b83d2f864aaa"
-			},
 			"preRequestScript": "",
+			"pathVariables": {
+				"id": ""
+			},
 			"method": "DELETE",
 			"data": [],
 			"dataMode": "params",
-			"name": "http://localhost:3000/api/author",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1420631896064,
 			"version": 2,
-			"responses": [],
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"time": 1421161517210,
+			"name": "http://localhost:3000/api/author",
+			"description": "",
 			"collectionId": "57986ec4-6cb0-1d92-d0a0-74de14490f3f",
+			"responses": [],
 			"synced": false
 		},
 		{
 			"id": "457798ed-c02b-e7ee-18c2-702d02f4e9bb",
 			"headers": "Content-Type: application/json\n",
 			"url": "http://localhost:3000/api/book/:id",
+			"preRequestScript": "",
 			"pathVariables": {
 				"id": "54ad203b1776b83d2f864aad"
 			},
-			"preRequestScript": "",
 			"method": "DELETE",
 			"data": [],
 			"dataMode": "params",
-			"name": "http://localhost:3000/api/book",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1420632141438,
 			"version": 2,
-			"responses": [],
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"time": 1421161541530,
+			"name": "http://localhost:3000/api/book",
+			"description": "",
 			"collectionId": "57986ec4-6cb0-1d92-d0a0-74de14490f3f",
+			"responses": [],
 			"synced": false
 		},
 		{
@@ -71,44 +87,43 @@
 				"id": "54ad1fe71776b83d2f864aab"
 			},
 			"preRequestScript": "",
+			"pathVariables": {},
 			"method": "GET",
 			"data": [],
 			"dataMode": "params",
-			"name": "http://localhost:3000/api/book",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1420632081273,
 			"version": 2,
-			"responses": [],
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"time": 1421151324390,
+			"name": "http://localhost:3000/api/book",
+			"description": "",
 			"collectionId": "57986ec4-6cb0-1d92-d0a0-74de14490f3f",
+			"responses": [],
 			"synced": false
 		},
 		{
 			"id": "85845d03-385d-402c-9463-c067a166a74b",
 			"headers": "Content-Type: application/json\n",
 			"url": "http://localhost:3000/api/book/:id",
-			"pathVariables": {
-				"id": "54ad1fe71776b83d2f864aab"
-			},
 			"preRequestScript": "",
+			"pathVariables": {
+				"id": ""
+			},
 			"method": "PUT",
 			"data": [],
 			"dataMode": "raw",
-			"name": "http://localhost:3000/api/book",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1420632115438,
 			"version": 2,
-			"responses": [],
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"time": 1421161577832,
+			"name": "http://localhost:3000/api/book",
+			"description": "",
 			"collectionId": "57986ec4-6cb0-1d92-d0a0-74de14490f3f",
+			"responses": [],
 			"synced": false,
-			"rawModeData": "{\"title\": \"El maleficio de la mariposa\", \"price\" : \"15.50\", \"author\" : \"54ad0c9b71ebcbca2339252b\"}"
+			"rawModeData": "{\"title\": \"El maleficio de la mariposa\", \"price\" : \"15.50\", \"author\" : \"<AUTHOR_ID>\"}"
 		},
 		{
 			"id": "a5554795-a08e-4bc3-f6a7-db66b06bc2b7",
@@ -116,7 +131,7 @@
 			"url": "http://localhost:3000/api/author/:id",
 			"preRequestScript": "",
 			"pathVariables": {
-				"id": "54ad0c9b71ebcbca2339252b"
+				"id": ""
 			},
 			"method": "PUT",
 			"data": [],
@@ -125,7 +140,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1420627418040,
+			"time": 1421161526448,
 			"name": "http://localhost:3000/api/author",
 			"description": "",
 			"collectionId": "57986ec4-6cb0-1d92-d0a0-74de14490f3f",
@@ -158,45 +173,41 @@
 			"id": "ce4f2e0e-8ed4-f72b-bc1d-96e772fa10cd",
 			"headers": "Content-Type: application/json\n",
 			"url": "http://localhost:3000/api/book",
-			"pathVariables": {},
 			"preRequestScript": "",
+			"pathVariables": {},
 			"method": "POST",
 			"data": [],
 			"dataMode": "raw",
-			"name": "http://localhost:3000/api/book",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1420632053490,
 			"version": 2,
-			"responses": [],
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"time": 1421161569192,
+			"name": "http://localhost:3000/api/book",
+			"description": "",
 			"collectionId": "57986ec4-6cb0-1d92-d0a0-74de14490f3f",
+			"responses": [],
 			"synced": false,
-			"rawModeData": "{\"title\": \"El maleficio de la mariposa\", \"price\" : \"15.50\", \"author\" : \"54ad0c9b71ebcbca2339252b\"}"
+			"rawModeData": "{\"title\": \"El maleficio de la mariposa\", \"price\" : \"15.50\", \"author\" : \"<AUTHOR_ID>\"}"
 		},
 		{
 			"id": "e928a205-07e7-3cb4-ee68-3e542c4d358e",
 			"headers": "Content-Type: application/json\n",
-			"url": "http://localhost:3000/api/author/:id",
-			"pathVariables": {
-				"id": "54ad0c9b71ebcbca2339252b"
-			},
+			"url": "http://localhost:3000/api/author",
 			"preRequestScript": "",
+			"pathVariables": {},
 			"method": "GET",
 			"data": [],
 			"dataMode": "params",
-			"name": "http://localhost:3000/api/author",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1420627389586,
 			"version": 2,
-			"responses": [],
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"time": 1421159647164,
+			"name": "http://localhost:3000/api/author",
+			"description": "",
 			"collectionId": "57986ec4-6cb0-1d92-d0a0-74de14490f3f",
+			"responses": [],
 			"synced": false
 		}
 	]

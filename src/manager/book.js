@@ -1,7 +1,15 @@
-var log = require('../util/log').logger,
+var log = require('../util/log'),
 	mongoose = require('mongoose'),
 	BookSchema = require('../schemas/book'),
 	Book = mongoose.model('Book', BookSchema);
+
+module.exports = {
+	createBook: createBook,
+	findBooks: findBooks,
+	getBookWithAuthor: getBookWithAuthor,
+	deleteBook: deleteBook,
+	updateBook: updateBook
+};
 
 function findBooks(criteria, callback) {
 	log.info('Searching books...');
@@ -46,11 +54,3 @@ function deleteBook(id, callback) {
 		});
 	});
 }
-
-module.exports = {
-	createBook: createBook,
-	findBooks: findBooks,
-	getBookWithAuthor: getBookWithAuthor,
-	deleteBook: deleteBook,
-	updateBook: updateBook
-};
