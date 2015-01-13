@@ -1,11 +1,10 @@
+var mongoose = require('mongoose'),
+  AuthorSchema;
 
-var mongoose = require('mongoose');
+AuthorSchema = module.exports = mongoose.Schema({
+  created: {type: Date, default: Date.now},
+  name: {type: String, required: true, trim: true, unique: true},
+  birthday: {type: Date, required: true},
+  books: [{type: mongoose.Schema.Types.ObjectId, ref: 'Book'}]
 
-var AuthorSchema = module.exports = mongoose.Schema({
-	created: { type: Date, default: Date.now },
-	name: { type: String, required: true, trim: true, unique : true },
-	birthday: { type: Date, required: true },
-	books: [{ type : mongoose.Schema.Types.ObjectId, ref : 'Book' }]
-
-}, { versionKey: false });
-
+}, {versionKey: false});
