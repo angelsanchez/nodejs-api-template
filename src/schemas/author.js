@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 
-var AuthorSchema = mongoose.Schema({
+var AuthorSchema = module.exports = mongoose.Schema({
 	created: { type: Date, default: Date.now },
 	name: { type: String, required: true, trim: true, unique : true },
 	birthday: { type: Date, required: true },
@@ -9,4 +9,3 @@ var AuthorSchema = mongoose.Schema({
 
 }, { versionKey: false });
 
-module.exports = AuthorSchema;

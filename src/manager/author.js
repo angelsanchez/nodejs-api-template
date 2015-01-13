@@ -1,7 +1,22 @@
-var log = require('../util/log').logger,
+var log = require('../util/log'),
 	mongoose = require('mongoose'),
 	AuthorSchema = require('../schemas/author'),
 	Author = mongoose.model('Author', AuthorSchema);
+
+module.exports = {
+	findAuthors: findAuthors,
+	getAuthor: getAuthor,
+	createAuthor: createAuthor,
+	updateAuthor: updateAuthor,
+	addBookToAuthor: addBookToAuthor,
+	removeBookFromAuthor: removeBookFromAuthor,
+	deleteAuthor: deleteAuthor
+};
+
+function findAuthors(criteria, callback) {
+	log.info('Searching authors...');
+	Author.find(criteria).populate('books', 'title price').exec(callback);
+}
 
 function getAuthor(id, callback) {
 	log.info('Looking for author[' + id + ']...');
@@ -56,12 +71,3 @@ function deleteAuthor(id, callback) {
 		});
 	});
 }
-
-module.exports = {
-	getAuthor: getAuthor,
-	createAuthor: createAuthor,
-	updateAuthor: updateAuthor,
-	addBookToAuthor: addBookToAuthor,
-	removeBookFromAuthor: removeBookFromAuthor,
-	deleteAuthor: deleteAuthor
-};
