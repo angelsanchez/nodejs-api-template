@@ -7,7 +7,9 @@
     "start": "./node_modules/.bin/forever start ./bin/server.js",
     "stop": "./node_modules/.bin/forever stop ./bin/server.js",
     "status": "./node_modules/.bin/forever list",
-    "test": "node_modules/cucumber/bin/cucumber.js features/"
+    "test": "node_modules/cucumber/bin/cucumber.js features/",
+    "lint": "node_modules/jshint/bin/jshint ./bin ./src",
+    "code-style": "node_modules/jscs/bin/jscs ./bin ./src --config="
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,8 @@
   },
   "devDependencies": {
     "cucumber": "^0.4.7",
-    "supertest": "^0.15.0"
+    "supertest": "^0.15.0",
+    "jshint": "^2.5.11",
+    "jscs": "^1.9.0"
   }
 }

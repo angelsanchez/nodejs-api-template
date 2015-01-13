@@ -16,12 +16,26 @@ Use it as a template project when you want to start a new project.
  - [cucumber](https://github.com/cucumber/cucumber-js) the popular Behaviour-Driven Development tool, brought to your JavaScript stack.
  - [supertest](https://github.com/tj/supertest) is a library for testing node.js HTTP servers using a fluent API
 
-## Run the application in development mode
+## Development
+
+### Run the application
 
 ```sh
 $ node bin/server.js | node_modules/bunyan/bin/bunyan -o short
 ```
 *The bunyan pipe is only for read better the logs*
+
+### Code lint
+
+```sh
+$ npm run-script lint
+```
+
+### Check code style
+
+```sh
+$ npm run-script code-style
+```
 
 ## Run the application as a service
 
