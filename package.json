@@ -1,6 +1,6 @@
 {
   "name": "nodejs-api-template",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A boilerplate for building a NodeJS API server. Use it as a template project when you want to start a new project.",
   "main": "bin/server.js",
   "scripts": {
