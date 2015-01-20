@@ -51,7 +51,7 @@ function deleteBook(id, callback) {
     Book.remove({_id: book._id}, function(err) {
       if (err) return callback(err);
 
-      require('/author').removeBookFromAuthor(book.author, book._id, function(err, author) {
+      require('/author').removeBookFromAuthor(book.author, book._id, function(err) {
         callback(err, book);
       });
     });

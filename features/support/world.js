@@ -1,8 +1,5 @@
-
 var World = function World(callback) {
-
-	callback();
-
+  callback();
 };
 
 module.exports.World = World;

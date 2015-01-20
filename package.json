@@ -7,10 +7,16 @@
     "start": "./node_modules/.bin/forever start ./bin/server.js",
     "stop": "./node_modules/.bin/forever stop ./bin/server.js",
     "status": "./node_modules/.bin/forever list",
-    "test": "node_modules/cucumber/bin/cucumber.js features/",
-    "lint": "node_modules/jshint/bin/jshint ./bin ./src",
-    "code-style": "node_modules/jscs/bin/jscs ./bin ./src"
+    "test": "./node_modules/.bin/gulp cucumber",
+    "lint": "./node_modules/.bin/gulp check",
+    "patch": "./node_modules/.bin/gulp patch",
+    "minor": "./node_modules/.bin/gulp minor",
+    "mayor": "./node_modules/.bin/gulp mayor"
   },
+  "pre-commit": [
+    "test",
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/IGZangelsanchez/nodejs-api-template.git"
@@ -34,9 +40,15 @@
     "forever": "^0.13.0"
   },
   "devDependencies": {
-    "cucumber": "^0.4.7",
     "supertest": "^0.15.0",
-    "jshint": "^2.5.11",
-    "jscs": "^1.9.0"
+    "gulp": "^3.8.10",
+    "gulp-bump": "^0.1.11",
+    "gulp-cucumber": "0.0.6",
+    "gulp-git": "^0.5.6",
+    "gulp-jscs": "^1.4.0",
+    "gulp-jshint": "^1.9.0",
+    "gulp-tag-version": "^1.2.1",
+    "which": "^1.0.8",
+    "pre-commit": "0.0.11"
   }
 }

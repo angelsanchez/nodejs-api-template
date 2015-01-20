@@ -1,5 +1,4 @@
-var log = require('../util/log'),
-  restify = require('restify'),
+var restify = require('restify'),
   authors = require('../manager/author');
 
 module.exports = function(server) {

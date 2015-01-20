@@ -1,5 +1,4 @@
-var log = require('../util/log'),
-  books = require('../manager/book');
+var books = require('../manager/book');
 
 module.exports = function(app) {
   app.get('/api/book', getAllBooks);

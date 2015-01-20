@@ -46,14 +46,14 @@ function updateAuthor(id, authorInput, callback) {
 
 function addBookToAuthor(authorId, bookId, callback) {
   Author.findByIdAndUpdate(authorId, {$push: {books: bookId}}, function(err, author) {
-    log.info('Added book[' + bookId + '] to author[' + authorId + ']');
+    log.info('Added book[' + bookId + '] to author[' + author._id + ']');
     if (callback) callback(err);
   });
 }
 
 function removeBookFromAuthor(authorId, bookId, callback) {
   Author.findByIdAndUpdate(authorId, {$pull: {books: bookId}}, function(err, author) {
-    log.info('Removed book[' + bookId + '] from author[' + authorId + ']');
+    log.info('Removed book[' + bookId + '] from author[' + author._id + ']');
     if (callback) callback(err);
   });
 }

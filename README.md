@@ -15,29 +15,13 @@ Use it as a template project when you want to start a new project.
 #### Dev. dependencies
  - [cucumber](https://github.com/cucumber/cucumber-js) the popular Behaviour-Driven Development tool, brought to your JavaScript stack.
  - [supertest](https://github.com/tj/supertest) is a library for testing node.js HTTP servers using a fluent API
- - [jshint](https://github.com/jshint/jshint) is a tool that helps to detect errors and potential problems in your JavaScript code
- - [jscs](https://github.com/jscs-dev/node-jscs) is a code style linter for programmatically enforcing your style guide
-
-## Development
-
-#### Run the application
-
-```sh
-$ node bin/server.js | node_modules/bunyan/bin/bunyan -o short
-```
-*The bunyan pipe is only for read better the logs*
-
-#### Code lint
-
-```sh
-$ npm run-script lint
-```
-
-#### Check code style
-
-```sh
-$ npm run-script code-style
-```
+ - [gulp](http://gulpjs.com/) Automate and enhance your workflow
+ - [gulp-jshint](https://github.com/spenceralger/gulp-jshint) is a tool that helps to detect errors and potential problems in your JavaScript code
+ - [gulp-jscs](https://github.com/jscs-dev/gulp-jscs) is a code style linter for programmatically enforcing your style guide
+ - [gulp-cucumber](https://github.com/vgamula/gulp-cucumber) gulp task for running cucumber.js features
+ - [gulp-bump](https://github.com/stevelacy/gulp-bump) bump npm versions with Gulp
+ - [gulp-git](https://github.com/stevelacy/gulp-git) is a git plugin for gulp
+ - [gulp-tag-version](https://github.com/ikari-pl/gulp-tag-version) tag git repository with current package version
 
 ## Run the application as a service
 
@@ -68,4 +52,51 @@ Show errors in http requests:
 
 ```sh
 $ tail -f <config.log.path> | node_modules/bunyan/bin/bunyan -c 'this.res && this.res.statusCode >= 500'
+```
+
+## Development
+
+#### Run the application
+
+```sh
+$ node bin/server.js | node_modules/bunyan/bin/bunyan
+```
+*The bunyan pipe is only for read better the logs*
+
+#### Code lint
+
+```sh
+$ npm run-script lint
+```
+
+#### Versioning
+
+Versioning Used: [Semantic](http://semver.org/)
+
+  - __major__: version when you make incompatible API changes, e.g. 1.0.0
+  - __minor__: version when you add functionality in a backwards-compatible manner, e.g. 0.1.0
+  - __patch__: version when you make backwards-compatible bug fixes, e.g. 0.0.1
+
+##### Increase patch version
+
+This command increases the package version, commits changes and create a tag for the new version.
+
+```sh
+$ npm run-script patch
+```
+
+##### Increase minor version
+
+This command increases the package version, commits changes and create a tag for the new version.
+
+```sh
+$ npm run-script minor
+```
+
+##### Increase major version
+
+This command increases the package version, commits changes and create a tag for the new version.
+
+```sh
+$ npm run-script major
 ```
