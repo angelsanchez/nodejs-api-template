@@ -22,6 +22,7 @@ Use it as a template project when you want to start a new project.
  - [gulp-bump](https://github.com/stevelacy/gulp-bump) bump npm versions with Gulp
  - [gulp-git](https://github.com/stevelacy/gulp-git) is a git plugin for gulp
  - [gulp-tag-version](https://github.com/ikari-pl/gulp-tag-version) tag git repository with current package version
+ - [pre-commit](https://github.com/observing/pre-commit) A better pre-commit hook for git
 
 ## Run the application as a service
 
@@ -55,6 +56,10 @@ $ tail -f <config.log.path> | node_modules/bunyan/bin/bunyan -c 'this.res && thi
 ```
 
 ## Development
+
+The `pre-commit` doesn't allow you to commit files with invalid format.
+We use the [airbnb](https://github.com/airbnb/javascript) style guide.
+
 
 #### Run the application
 
