@@ -10,7 +10,7 @@ Use it as a template project when you want to start a new project.
  - [mongoose](https://github.com/LearnBoost/mongoose) is a MongoDB object modeling tool designed to work in an asynchronous environment.
  - [config](https://github.com/lorenwest/node-config) organizes hierarchical configurations for your app deployments.
  - [bunyan](https://github.com/trentm/node-bunyan) is a JSON logging library for node.js services
- - [forever](https://github.com/foreverjs/forever) is a simple CLI tool for ensuring that a given script runs continuously
+ - [pm2](https://github.com/Unitech/PM2/blob/development/ADVANCED_README.md) is a production process manager for Node.js applications with a built-in load balancer
 
 #### Dev. dependencies
  - [cucumber](https://github.com/cucumber/cucumber-js) the popular Behaviour-Driven Development tool, brought to your JavaScript stack.
