@@ -4,11 +4,10 @@
   "description": "A boilerplate for building a NodeJS API server. Use it as a template project when you want to start a new project.",
   "main": "bin/server.js",
   "scripts": {
-    "start": "./node_modules/.bin/pm2 start ./bin/server.js",
-    "stop": "./node_modules/.bin/pm2 stop ./bin/server.js",
+    "start": "./node_modules/.bin/pm2 start ./src/server.js",
+    "stop": "./node_modules/.bin/pm2 stop ./src/server.js",
     "status": "./node_modules/.bin/pm2 status",
     "test": "./node_modules/.bin/gulp cucumber",
-    "lint": "./node_modules/.bin/gulp check",
     "patch": "./node_modules/.bin/gulp patch",
     "minor": "./node_modules/.bin/gulp minor",
     "mayor": "./node_modules/.bin/gulp mayor"
@@ -48,7 +47,6 @@
     "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.0",
     "gulp-tag-version": "^1.2.1",
-    "which": "^1.0.8",
     "pre-commit": "0.0.11"
   }
 }

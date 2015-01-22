@@ -8,26 +8,40 @@ var gulp = require('gulp'),
 
 const SOURCE_FOLDERS = ['./src/**/*.js', './features/**/*.js', 'gulpfile.js'];
 
-gulp.task('style', function() {
+//
+// Check code style and lint
+//
+gulp.task('jscs', function() {
   return gulp.src(SOURCE_FOLDERS)
     .pipe(jscs());
 });
 
-gulp.task('lint', function() {
+gulp.task('jshint', function() {
   return gulp.src(SOURCE_FOLDERS)
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('check', ['lint', 'style']);
-
-gulp.task('cucumber', ['check'], function() {
-  return gulp.src('./features/**/*.js')
+//
+// Tests
+//
+gulp.task('cucumber', function() {
+  return gulp.src('./features/*.feature')
     .pipe(cucumber({
+      steps: './features/step_definitions/*.js',
+      support: './features/support/*.js',
       format: 'summary'
     }));
 });
 
+//
+// Default
+//
+gulp.task('default', ['jscs', 'jshint', 'cucumber']);
+
+//
+// Versioning
+//
 function bumpTagCommit(importance) {
   return gulp.src('./package.json')
     .pipe(bump({type: importance}))
@@ -36,16 +50,14 @@ function bumpTagCommit(importance) {
     .pipe(tagVersion());
 }
 
-gulp.task('patch', ['check'], function() {
+gulp.task('patch', ['default'], function() {
   return bumpTagCommit('patch');
 });
 
-gulp.task('minor', ['check'], function() {
+gulp.task('minor', ['default'], function() {
   return bumpTagCommit('minor');
 });
 
-gulp.task('major', ['check'], function() {
+gulp.task('major', ['default'], function() {
   return bumpTagCommit('major');
 });
-
-gulp.task('default', ['check']);

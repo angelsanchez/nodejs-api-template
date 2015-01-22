@@ -13,7 +13,6 @@ Use it as a template project when you want to start a new project.
  - [pm2](https://github.com/Unitech/PM2/blob/development/ADVANCED_README.md) is a production process manager for Node.js applications with a built-in load balancer
 
 #### Dev. dependencies
- - [cucumber](https://github.com/cucumber/cucumber-js) the popular Behaviour-Driven Development tool, brought to your JavaScript stack.
  - [supertest](https://github.com/tj/supertest) is a library for testing node.js HTTP servers using a fluent API
  - [gulp](http://gulpjs.com/) Automate and enhance your workflow
  - [gulp-jshint](https://github.com/spenceralger/gulp-jshint) is a tool that helps to detect errors and potential problems in your JavaScript code
@@ -64,15 +63,9 @@ We use the [airbnb](https://github.com/airbnb/javascript) style guide.
 #### Run the application
 
 ```sh
-$ node bin/server.js | node_modules/bunyan/bin/bunyan
+$ node src/server.js | node_modules/bunyan/bin/bunyan
 ```
 *The bunyan pipe is only for read better the logs*
-
-#### Code lint
-
-```sh
-$ npm run-script lint
-```
 
 #### Versioning
 
@@ -87,7 +80,7 @@ Versioning Used: [Semantic](http://semver.org/)
 This command increases the package version, commits changes and create a tag for the new version.
 
 ```sh
-$ npm run-script patch
+$ npm run patch
 ```
 
 ##### Increase minor version
@@ -95,7 +88,7 @@ $ npm run-script patch
 This command increases the package version, commits changes and create a tag for the new version.
 
 ```sh
-$ npm run-script minor
+$ npm run minor
 ```
 
 ##### Increase major version
@@ -103,5 +96,5 @@ $ npm run-script minor
 This command increases the package version, commits changes and create a tag for the new version.
 
 ```sh
-$ npm run-script major
+$ npm run major
 ```

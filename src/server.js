@@ -1,16 +1,12 @@
 var log = require('../src/util/log'),
   config = require('config'),
   mongoose = require('mongoose'),
-  app = require('../src/app'),
-  NODE_ENV;
+  app = require('../src/app');
 
 //
 // MongoDB
 //
-NODE_ENV = process.env.NODE_ENV || 'development';
-if (NODE_ENV === 'development') {
-  mongoose.set('debug', true);
-}
+mongoose.set('debug', true);
 
 log.info('Connecting to MongoDB...');
 mongoose.connect(config.get('db.conn'), function(err) {

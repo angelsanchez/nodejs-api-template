@@ -1,8 +1,8 @@
 var log = require('./util/log'),
   restify = require('restify'),
   path = require('path'),
-  config = require('config'),
   fs = require('fs'),
+  packageJson = require('../package.json'),
   ROUTES_FOLDER = './routes/',
   app;
 
@@ -10,8 +10,8 @@ var log = require('./util/log'),
 // App
 //
 app = restify.createServer({
-  name: config.get('app.name'),
-  version: config.get('app.version'),
+  name: packageJson.name,
+  version: packageJson.version,
   log: log
 });
 
