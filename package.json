@@ -7,6 +7,7 @@
     "start": "./node_modules/.bin/pm2 start ./src/server.js -n library-example",
     "stop": "./node_modules/.bin/pm2 delete library-example",
     "status": "./node_modules/.bin/pm2 status",
+    "logs": "./node_modules/.bin/pm2 logs library-example",
     "test": "./node_modules/.bin/gulp cucumber",
     "patch": "./node_modules/.bin/gulp patch",
     "minor": "./node_modules/.bin/gulp minor",

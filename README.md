@@ -42,17 +42,26 @@ $  npm status
 $  npm stop
 ```
 
+
 ## Logs
 
-All application logs (requests, responses, traces and mongodb accesses) are stored in a file. The log file path is set in the config file (`log.path`).
+All application logs (requests, responses, traces and mongodb accesses) are stored in a file.
+The log file path is `~/.pm2/logs/[name]-[id].log`.
+
+#### Read logs
+
+```sh
+$ npm run logs
+```
 
 #### Read error logs
 
 Show errors in http requests:
 
 ```sh
-$ tail -f <config.log.path> | node_modules/bunyan/bin/bunyan -c 'this.res && this.res.statusCode >= 500'
+$ tail -f ~/.pm2/logs/[name]-[id].log | node_modules/bunyan/bin/bunyan -c 'this.res && this.res.statusCode >= 500'
 ```
+
 
 ## Development
 
