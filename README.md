@@ -67,14 +67,20 @@ $ tail -f ~/.pm2/logs/[name]-[id].log | node_modules/bunyan/bin/bunyan -c 'this.
 
 The `pre-commit` doesn't allow you to commit files with invalid format.
 We use the [airbnb](https://github.com/airbnb/javascript) style guide.
+And the tests are going to be checked before the git commit.
 
 
 #### Run the application
 
 ```sh
-$ node src/server.js | node_modules/bunyan/bin/bunyan
+$ node src/server.js
 ```
-*The bunyan pipe is only for read better the logs*
+
+Read the logs better using bunyan:
+```sh
+$ node src/server.js | ./node_modules/bunyan/bin/bunyan
+```
+
 
 #### Run tests
 
