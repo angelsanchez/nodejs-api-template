@@ -1,7 +1,8 @@
-var bunyan = require('bunyan');
+var bunyan = require('bunyan'),
+  packageJson = require('../../package.json');
 
 module.exports = bunyan.createLogger({
-  name: 'library-example',
+  name: packageJson.name,
   streams: [
     {
       stream: process.stdout

@@ -4,8 +4,8 @@
   "description": "A boilerplate for building a NodeJS API server. Use it as a template project when you want to start a new project.",
   "main": "bin/server.js",
   "scripts": {
-    "start": "./node_modules/.bin/pm2 start ./src/server.js",
-    "stop": "./node_modules/.bin/pm2 stop ./src/server.js",
+    "start": "./node_modules/.bin/pm2 start ./src/server.js -n library-example",
+    "stop": "./node_modules/.bin/pm2 delete library-example",
     "status": "./node_modules/.bin/pm2 status",
     "test": "./node_modules/.bin/gulp cucumber",
     "patch": "./node_modules/.bin/gulp patch",

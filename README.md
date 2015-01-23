@@ -67,6 +67,12 @@ $ node src/server.js | node_modules/bunyan/bin/bunyan
 ```
 *The bunyan pipe is only for read better the logs*
 
+#### Run tests
+
+```sh
+$ npm test
+```
+
 #### Versioning
 
 Versioning Used: [Semantic](http://semver.org/)
