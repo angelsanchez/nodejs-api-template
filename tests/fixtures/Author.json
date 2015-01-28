@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "548efb8616dedf3b01a8380f",
+    "name": "Federico Garcia Lorca",
+    "birthday" : "1898-06-05"
+  },
+  {
+    "_id": "54be6b8fdf88adf21c38ce39",
+    "name": "Arthur C. Clarke",
+    "birthday" : "1917-12-16"
+  }
+]

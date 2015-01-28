@@ -1,7 +1,5 @@
 var log = require('../util/log'),
-  mongoose = require('mongoose'),
-  BookSchema = require('../schemas/book'),
-  Book = mongoose.model('Book', BookSchema);
+  Book = require('../models/book');
 
 module.exports = {
   createBook: createBook,
