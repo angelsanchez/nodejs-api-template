@@ -1,6 +1,6 @@
 var request = require('supertest'),
   assert = require('assert'),
-  app = require('../../src/app'),
+  app = require('../../../src/app'),
   myStepDefinitionsWrapper;
 
 myStepDefinitionsWrapper = function() {
