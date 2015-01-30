@@ -22,6 +22,7 @@ Use it as a template project when you want to start a new project.
  - [gulp-git](https://github.com/stevelacy/gulp-git) is a git plugin for gulp
  - [gulp-tag-version](https://github.com/ikari-pl/gulp-tag-version) tag git repository with current package version
  - [pre-commit](https://github.com/observing/pre-commit) A better pre-commit hook for git
+ - [mongoose-simple-fixtures](https://github.com/weisjohn/mongoose-simple-fixtures) Simple default data for mongoose models.
 
 ## Run the application as a service
 
