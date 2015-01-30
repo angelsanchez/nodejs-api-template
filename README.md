@@ -127,3 +127,9 @@ This command increases the package version, commits changes and create a tag for
 ```sh
 $ npm run major
 ```
+
+#### Run Code Coverage Tool
+
+```sh
+$ npm coverage
+```

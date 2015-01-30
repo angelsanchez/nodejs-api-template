@@ -10,6 +10,7 @@
     "logs": "./node_modules/.bin/pm2 logs",
     "style": "./node_modules/.bin/gulp jscs",
     "lint": "./node_modules/.bin/gulp jshint",
+    "coverage": "./node_modules/istanbul/lib/cli.js cover node_modules/gulp-cucumber/node_modules/cucumber/bin/cucumber.js tests/features/",
     "test": "./node_modules/.bin/gulp cucumber",
     "debug:test": "node debug ./node_modules/gulp-cucumber/node_modules/cucumber/bin/cucumber.js tests/features",
     "patch": "./node_modules/.bin/gulp patch",
@@ -37,11 +38,12 @@
   },
   "homepage": "https://github.com/IGZangelsanchez/nodejs-api-template",
   "dependencies": {
-    "restify": "^2.8.4",
-    "mongoose": "^3.8.21",
-    "config": "^1.9.0",
     "bunyan": "^1.2.3",
-    "pm2": "^0.12.3"
+    "config": "^1.9.0",
+    "istanbul": "^0.3.5",
+    "mongoose": "^3.8.21",
+    "pm2": "^0.12.3",
+    "restify": "^2.8.4"
   },
   "devDependencies": {
     "supertest": "^0.15.0",
