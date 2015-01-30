@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
   authors = require('../manager/author'),
   BookSchema;
 
-BookSchema = module.exports = mongoose.Schema({
+BookSchema = mongoose.Schema({
   created: {type: Date, default: Date.now},
   title: {type: String, required: true, trim: true, unique: true, index: true},
   price: {type: Number, required: true},
@@ -15,8 +15,6 @@ BookSchema.pre('save', function(next) {
     authors.getAuthor(this.author, function(err, author) {
       if (err) {
         next(err);
-      } else if (!author) {
-        next(new Error('Invalid Author Id'));
       } else {
         next();
       }
@@ -30,3 +28,5 @@ BookSchema.pre('save', function(next) {
 BookSchema.post('save', function(book) {
   authors.addBookToAuthor(book.author, book._id);
 });
+
+module.exports = mongoose.model('Book', BookSchema);

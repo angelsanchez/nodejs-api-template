@@ -6,7 +6,7 @@ var gulp = require('gulp'),
   git = require('gulp-git'),
   cucumber = require('gulp-cucumber');
 
-const SOURCE_FOLDERS = ['./src/**/*.js', './features/**/*.js', 'gulpfile.js'];
+const SOURCE_FOLDERS = ['./src/**/*.js', './tests/features/**/*.js', 'gulpfile.js'];
 
 //
 // Check code style and lint
@@ -26,10 +26,10 @@ gulp.task('jshint', function() {
 // Tests
 //
 gulp.task('cucumber', function() {
-  return gulp.src('./features/*.feature')
+  return gulp.src('./tests/features/*.feature')
     .pipe(cucumber({
-      steps: './features/step_definitions/*.js',
-      support: './features/support/*.js',
+      steps: './tests/features/step_definitions/*.js',
+      support: './tests/features/support/*.js',
       format: 'summary'
     }));
 });

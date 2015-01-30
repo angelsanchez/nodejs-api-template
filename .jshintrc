@@ -9,7 +9,7 @@
   "quotmark": "single",
   "strict": false,
   "undef": true,
-  "unused": true,
+  "unused": "vars",
   "eqnull": true,
   "esnext": true
 }

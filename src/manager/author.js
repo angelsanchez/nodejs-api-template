@@ -1,7 +1,5 @@
 var log = require('../util/log'),
-  mongoose = require('mongoose'),
-  AuthorSchema = require('../schemas/author'),
-  Author = mongoose.model('Author', AuthorSchema);
+  Author = require('../models/author');
 
 module.exports = {
   findAuthors: findAuthors,
