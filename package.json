@@ -11,6 +11,7 @@
     "style": "./node_modules/.bin/gulp jscs",
     "lint": "./node_modules/.bin/gulp jshint",
     "test": "./node_modules/.bin/gulp cucumber",
+    "debug:test": "node debug ./node_modules/.bin/cucumber-js tests/features",
     "patch": "./node_modules/.bin/gulp patch",
     "minor": "./node_modules/.bin/gulp minor",
     "mayor": "./node_modules/.bin/gulp mayor"

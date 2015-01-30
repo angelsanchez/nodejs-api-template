@@ -42,11 +42,10 @@ $  npm status
 $  npm stop
 ```
 
-
-## Logs
+### Logs
 
 All application logs (requests, responses, traces and mongodb accesses) are stored in a file.
-The log file path is `~/.pm2/logs/[name]-[id].log`.
+The log file path is `~/.pm2/logs/library-example-[id].log`.
 
 #### Read logs
 
@@ -86,6 +85,14 @@ $ node src/server.js | ./node_modules/bunyan/bin/bunyan
 
 ```sh
 $ npm test
+```
+
+#### Debug tests
+
+This command initializes node in debug mode and runs the cucumbers.
+
+```sh
+$ npm run debug:test
 ```
 
 #### Versioning
