@@ -23,6 +23,7 @@ Use it as a template project when you want to start a new project.
  - [gulp-tag-version](https://github.com/ikari-pl/gulp-tag-version) tag git repository with current package version
  - [pre-commit](https://github.com/observing/pre-commit) A better pre-commit hook for git
  - [mongoose-simple-fixtures](https://github.com/weisjohn/mongoose-simple-fixtures) Simple default data for mongoose models.
+ - [istanbul](https://github.com/gotwarlost/istanbul) Code Coverage Tool.
 
 ## Run the application as a service
 
@@ -126,4 +127,10 @@ This command increases the package version, commits changes and create a tag for
 
 ```sh
 $ npm run major
+```
+
+#### Run Code Coverage Tool
+
+```sh
+$ npm run coverage
 ```
