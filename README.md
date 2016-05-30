@@ -27,6 +27,12 @@ Use it as a template project when you want to start a new project.
 
 ## Run the application as a service
 
+#### Install dependencies (Requires nodejs+npm)
+
+```sh
+$ npm install
+```
+
 #### Start the service
 
 ```sh
